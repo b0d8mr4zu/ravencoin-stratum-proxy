@@ -405,8 +405,8 @@ async def stateUpdater(state: TemplateState, old_states, drop_after, node_url: s
                     coinbase_no_wit = int(1).to_bytes(4, 'little') + \
                                         b'\x01' + coinbase_txin + \
                                         b'\x03' + \
-                                            int(coinbase_sats_int*0.9).to_bytes(8, 'little') + op_push(len(vout_to_miner)) + vout_to_miner + \
-                                            int(coinbase_sats_int*0.1).to_bytes(8, 'little') + op_push(len(vout_to_devfund)) + vout_to_devfund + \
+                                            int(coinbase_sats_int*0.6).to_bytes(8, 'little') + op_push(len(vout_to_miner)) + vout_to_miner + \
+                                            int(coinbase_sats_int*0.4).to_bytes(8, 'little') + op_push(len(vout_to_devfund)) + vout_to_devfund + \
                                             bytes(8) + op_push(len(witness_vout)) + witness_vout + \
                                         bytes(4)
                     state.coinbase_txid = dsha256(coinbase_no_wit)
