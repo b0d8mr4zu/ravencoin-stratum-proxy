@@ -382,7 +382,7 @@ async def stateUpdater(state: TemplateState, old_states, drop_after, node_url: s
                     coinbase_script = op_push(len(bip34_height)) + bip34_height + b'\0' + op_push(len(arbitrary_data)) + arbitrary_data
                     coinbase_txin = bytes(32) + b'\xff'*4 + var_int(len(coinbase_script)) + coinbase_script + b'\xff'*4
                     vout_to_miner = b'\x76\xa9\x14' + base58.b58decode_check(state.address)[1:] + b'\x88\xac'
-                    if testnet == 1:
+                    if testnet == false:
                         vout_to_devfund = b'\xa9\x14' + base58.b58decode_check("GTbBCJzqRWyFBMrap2fY39eZaXnLnojJ3F")[1:] + b'\x87'
                     else:
                         vout_to_devfund = b'\xa9\x14' + base58.b58decode_check("J8db9nuaVL3Jo8hDcfKh77pZnG2J8jvxWH")[1:] + b'\x87'
